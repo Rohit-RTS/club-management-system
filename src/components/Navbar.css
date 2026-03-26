@@ -1,0 +1,46 @@
+.navbar{
+   background-color: rgb(255, 255, 255);
+    height:60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+      box-shadow: -1px 10px 9px -8px rgba(0,0,0,0.57);
+        -webkit-box-shadow: -1px 10px 9px -8px rgba(0,0,0,0.15);
+         -moz-box-shadow: -1px 10px 9px -8px rgba(0,0,0,0.57);
+}
+.logo{
+
+    color: black;
+    font-weight: 650;
+}
+
+.nav-container nav ul{
+    display: flex;
+   
+
+}
+nav ul li a{
+    text-decoration: none;
+    padding-left: 15px;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+}
+nav ul li{
+    list-style: none;
+}
+.auth a{
+     text-decoration: none;
+     margin-left: 20px;
+     color: black;
+     font-size: 14px;
+
+}
+.join-btn{
+    background-color: blue;
+    padding: 5px 10px 10px 10px;
+    border-radius: 20px;
+   color: white;
+    
+}
