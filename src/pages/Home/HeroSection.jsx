@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <div className="hero-sec">
       
-      {/* LEFT CONTENT */}
+  
       <div className="content">
 
         <span className="tag">REDEFINING CAMPUS LIFE</span>
@@ -29,7 +29,7 @@ export default function HeroSection() {
 
       </div>
 
-      {/* RIGHT IMAGE */}
+     {/* Right image */}
       <div className="banner">
         <img src={heroImg} alt="main" className="main-img" />
       

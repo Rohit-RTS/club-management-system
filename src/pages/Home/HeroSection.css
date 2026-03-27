@@ -1,14 +1,14 @@
+
 .hero-sec {
   width: 100%;
   min-height: 90vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #f3f4f6;
-  padding: 40px 60px;
+ 
 }
 
-/* LEFT */
 .content {
   width: 50%;
   display: flex;
@@ -69,15 +69,17 @@
   cursor: pointer;
 }
 
-/* RIGHT IMAGE */
+
 .banner {
   width: 50%;
- 
   display: flex;
-  justify-content: center;
+  align-items: center;
+  
+
+
 }
 
-/* MAIN IMAGE */
+
 .main-img {
   width: 450px;
   border-radius: 20px;
@@ -85,7 +87,7 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* SMALL IMAGE */
+
 .small-img {
   position: absolute;
   bottom: -20px;
@@ -96,9 +98,12 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* 🔥 RESPONSIVE */
+
 @media (max-width: 768px) {
   .hero-sec {
+
+    display:  flex;
+    flex-direction: column;
          
   }
 
@@ -106,9 +111,11 @@
   .banner {
     width: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    
+    
+    
   }
 
   .content h1 {
