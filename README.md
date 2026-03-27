@@ -9,6 +9,12 @@
 ## 📸 Screenshots
 ![alt text](assets/Navbar+Herosection.png)
 
+### Day 2
+- Stat section created and updated
+
+## 📸 Screenshots
+![alt text](assets/stat-section-included.png)
+
 ## 🌐 Live Demo
 (Add link when deployed)
 
