@@ -7,7 +7,7 @@
 - Landing page with navbar and hero section
 
 ## 📸 Screenshots
-
+![alt text](assets/Navbar+Herosection.png)
 
 ## 🌐 Live Demo
 (Add link when deployed)
