@@ -1,0 +1,9 @@
+.events-tab{
+    background-color: red;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}

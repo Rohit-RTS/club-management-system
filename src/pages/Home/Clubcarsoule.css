@@ -1,0 +1,107 @@
+
+.clubcar
+{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    height: 450px;
+    background-color: #f3f4f6;
+}
+.txt-carsoule{
+    color: black;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.carousel {
+  --items: 6;
+  --carousel-duration: 30s;
+  --carousel-width: min(80vw, 800px);
+  --carousel-item-width: 280px;
+  --carousel-item-height: 300px;
+  --carousel-item-gap: 2rem;
+
+  position: relative;
+  width: var(--carousel-width);
+  height: var(--carousel-item-height);
+  overflow: hidden;
+}
+
+/* pause on hover */
+.carousel:hover article {
+  animation-play-state: paused;
+}
+
+/* cards */
+.carousel article {
+  position: absolute;
+  top: 0;
+  left: calc(100% + var(--carousel-item-gap));
+
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background: white;
+
+  animation: marquee var(--carousel-duration) linear infinite;
+}
+
+/* image */
+.carousel img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* text */
+.carousel article h2 {
+  font-size: 1.2rem;
+  padding: 10px;
+  margin: 0;
+}
+
+.carousel article p {
+  padding: 0 10px;
+  font-size: 0.9rem;
+}
+
+/* button */
+.carousel article a {
+  margin: 10px;
+  padding: 6px 10px;
+  border: 1px solid #4f46e5;
+  color: #4f46e5;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* animation delay */
+.carousel article:nth-child(1) { --i: 0; }
+.carousel article:nth-child(2) { --i: 1; }
+.carousel article:nth-child(3) { --i: 2; }
+.carousel article:nth-child(4) { --i: 3; }
+.carousel article:nth-child(5) { --i: 4; }
+.carousel article:nth-child(6) { --i: 5; }
+
+.carousel article {
+  animation-delay: calc(
+    var(--carousel-duration) / var(--items) * var(--i) * -1
+  );
+}
+
+/* animation */
+@keyframes marquee {
+  100% {
+    transform: translateX(
+      calc(
+        (var(--items) * (var(--carousel-item-width) + var(--carousel-item-gap))) * -1
+      )
+    );
+  }
+}

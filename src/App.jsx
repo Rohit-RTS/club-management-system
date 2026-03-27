@@ -7,6 +7,7 @@ import Club from "./pages/Club";
 import ClubDetail from "./pages/ClubDetail";
 import Events from "./pages/Events";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
