@@ -15,6 +15,12 @@
 ## 📸 Screenshots
 ![alt text](assets/stat-section-included.png)
 
+### Day 3
+- Club card animation and event indicator.
+
+## 📸 Screenshots
+![alt text](assets/club-event.png)
+
 ## 🌐 Live Demo
 (Add link when deployed)
 

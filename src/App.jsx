@@ -6,6 +6,8 @@ import Home from "./pages/Home/Home";
 import Club from "./pages/Club";
 import ClubDetail from "./pages/ClubDetail";
 import Events from "./pages/Events";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 
 const router = createBrowserRouter([
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "events",
         element: <Events />,
+      },
+       {
+        path: "login",
+        element: <Login />,
+      },
+        {
+        path: "register",
+        element: <Register />,
       },
     ],
   },
