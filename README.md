@@ -21,6 +21,12 @@
 ## 📸 Screenshots
 ![alt text](assets/club-event.png)
 
+### Day 4
+- Login and Register page with authentication using Formik.
+
+## 📸 Screenshots
+
+![alt text](assets/login-register.png)
 ## 🌐 Live Demo
 (Add link when deployed)
 
