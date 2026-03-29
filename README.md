@@ -23,6 +23,7 @@
 
 ### Day 4
 - Login and Register page with authentication using Formik.
+- Frontend connect with Backend and store register information in Database table.
 
 ## 📸 Screenshots
 
