@@ -12,6 +12,7 @@ export default function Navbar() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/club">Clubs</Link></li>
             <li><Link to="/events">Events</Link></li>
+            <li><Link to="/dashboard">Dashboard</Link></li>
           </ul>
         </nav>
       </div>
