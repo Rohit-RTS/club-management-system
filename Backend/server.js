@@ -3,13 +3,13 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const mysql = require("mysql2");
-require("dotenv").config(); // ✅ FIX 1
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-/* 🔌 DB Connection */
+
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -22,7 +22,6 @@ db.connect((err) => {
   else console.log("Database Connected");
 });
 
-/* 🔐 REGISTER API */
 app.post("/api/register", async (req, res) => {
   try {
     console.log(req.body);
@@ -31,7 +30,7 @@ app.post("/api/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const sql =
-      "INSERT INTO students (username, email, password,branch, year) VALUES (?, ?, ?, ?, ?)"; // ✅ FIX 2
+      "INSERT INTO students (username, email, password,branch, year) VALUES (?, ?, ?, ?, ?)";
 
     db.query(
       sql,
@@ -64,14 +63,13 @@ app.post("/api/login", (req, res) => {
 
     const user = result[0];
 
-    // 🔐 compare password
     const match = await bcrypt.compare(password, user.password);
 
     if (!match) {
       return res.status(401).json({ message: "Invalid password" });
     }
 
-    // ❗ remove password before sending
+    //  remove password before sending
     const { password: _, ...userData } = user;
 
     res.json({
@@ -80,6 +78,94 @@ app.post("/api/login", (req, res) => {
     });
   });
 });
+ 
+// To render the all clubs on the home page
+
+app.get("/api/clubs", (req, res) => {
+    
+    const sql = "SELECT * FROM clubs";
+
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ message: "DB error" });
+    }
+
+    console.log("DB RESULT:", result); 
+
+    res.json(result);
+  })
+
+});
+
+
+// To update the student_clubs that which student joined which club.
+
+app.post("/api/join-club",(req,res)=>{
+          
+      const {student_id,club_id} = req.body;
+
+      const sql = `
+    INSERT INTO student_clubs (student_id, club_id)
+    VALUES (?, ?)
+  `;
+     
+  db.query(sql,[student_id,club_id],(err,result)=>{
+        if (err) {
+      return res.status(500).json({ message: "DB error" });
+    }
+
+    res.json({ message: "Joined successfully" });
+  });
+
+});
+
+// To give the clubs joined by the logged in student.
+
+app.get("/api/my-clubs/:student_id", (req, res) => {
+
+  const student_id = req.params.student_id; 
+
+  const sql = `
+    SELECT clubs.*
+    FROM clubs
+    JOIN student_clubs 
+    ON clubs.id = student_clubs.club_id
+    WHERE student_clubs.student_id = ?
+  `;
+
+  db.query(sql, [student_id], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ message: "DB error" });
+    }
+
+    res.json(result);
+  });
+});
+
+ // To display the events
+ app.get("/api/events",(req,res)=>{
+    
+  const sql = "SELECT * FROM events ";
+
+  
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ message: "DB error" });
+    }
+
+    console.log("DB RESULT:", result); 
+
+    res.json(result);
+  })
+
+
+ });
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server running");
 });
+
+
+  

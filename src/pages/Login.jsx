@@ -4,11 +4,13 @@ import { useState } from "react";
 
 export default function Login() {
 
-  // ✅ State for inputs
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  // ✅ Login function
+  const [user,setuser] = useState({
+    email:"",
+    password:"",
+  });
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Login clicked");
@@ -19,26 +21,26 @@ export default function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify( user),
       });
 
       const data = await res.json();
       console.log("Response:", data);
 
       if (res.ok) {
-        // ✅ Store user
+       
         localStorage.setItem("user", JSON.stringify(data.user));
 
-        alert("Login successful ✅");
+        alert("Login successful ");
 
-        // ✅ Redirect
+      
         window.location.href = "/dashboard";
       } else {
         alert(data.message);
       }
     } catch (error) {
       console.log("Error:", error);
-      alert("Login failed ❌");
+      alert("Login failed ");
     }
   };
 
@@ -47,7 +49,7 @@ export default function Login() {
       <div className="login-card">
         <h2>Club Portal Login</h2>
 
-        {/* ✅ FORM ADDED */}
+    
         <form onSubmit={handleLogin}>
 
           <div className="input-group">
@@ -55,8 +57,8 @@ export default function Login() {
             <input
               type="email"
               placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={user.email}
+              onChange={(e) => setuser({...user,email:e.target.value})}
               required
             />
           </div>
@@ -66,13 +68,12 @@ export default function Login() {
             <input
               type="password"
               placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={user.password}
+              onChange={(e) => setuser({...user,password:e.target.value})}
               required
             />
           </div>
 
-          {/* ✅ FIXED BUTTON */}
           <button type="submit" className="login-btn">
             Sign In to Dashboard →
           </button>

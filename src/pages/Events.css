@@ -1,0 +1,63 @@
+.events-page {
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #f5f7fb, #eef2ff);
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* HEADER */
+.events-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* MAIN HEADING */
+.events-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111;
+
+  /* gradient text */
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 10px;
+}
+
+/* SUBTEXT */
+.events-header p {
+  font-size: 15px;
+  color: #555;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* OPTIONAL DECORATIVE LINE */
+.events-header::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #4f46e5;
+  margin: 15px auto 0;
+  border-radius: 5px;
+}
+
+/* EVENTS LIST */
+.events-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* SECTION TITLE (OPTIONAL) */
+.section-title {
+  width: 90%;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}

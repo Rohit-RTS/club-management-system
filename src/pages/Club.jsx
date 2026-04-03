@@ -1,20 +1,53 @@
-import "./Club.css"
-export default function club(){
+import "./Club.css";
+import Clubcard from "../components/Clubcard";
+import { useState,useEffect } from "react";
 
-    return(
-         <>
-         
-          
-        <div className="banner">
-            <h1>Explore Clubs Here !</h1> <br />
-            <p>Join clubs according to your intrest and upskill eveyday</p>
-            
-      <div className="search-box">
-      <input type="text" placeholder="Explore Clubs" />
-      <span className="search-icon">🔍</span>
-    </div>
+export default function Clubs() {
 
-           </div>
-        </>
-    );
+       
+ const [clubs, setClubs] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/clubs")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data); 
+        setClubs(data);    
+      })
+      .catch(err => console.log(err));
+  }, []);
+
+    
+  return (
+    <>
+    
+      <div className="banner-clubs">
+        <h1>Explore the Clubs & Make Amazing College Memories</h1>
+
+        <div className="search-club">
+          <input type="text" placeholder="Explore Clubs..." />
+          <span className="search-icon">🔍</span>
+        </div>
+      </div>
+
+
+      <div className="clubs-container">
+         {clubs.length > 0 ? (
+                 clubs.map((club, index) => (
+                   <article key={club.id} style={{ "--i": index }}>
+                     <Clubcard
+                     id ={club.id}
+                       name={club.name}
+                       description={club.description}
+                       image={club.image}
+                     />
+                   </article>
+                 ))
+               ) : (
+                 <p>Loading...</p>
+               )}
+        
+      </div>
+    </>
+  );
 }

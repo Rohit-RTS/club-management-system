@@ -1,62 +1,133 @@
 .eventstrip {
-  height: 70px;
   width: 90%;
-  background-color: rgb(255, 255, 255);
-
-  border-radius: 10px;
+  background-color: #ffffff;
+  border-radius: 12px;
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center; /* ✅ FIXED */
 
-  padding: 0 15px;
+  padding: 15px 20px;
+  margin: 12px auto;
+
+  min-height: 90px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.2s ease;
+}
+
+.eventstrip:hover {
+  transform: translateY(-3px);
 }
 
 /* DATE */
 .date {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  color:black;
+  width: 70px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .date h1 {
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
-  color: blue;
+  color: #4f46e5;
 }
 
 .date span {
-  font-size: 12px;
+  font-size: 13px;
+  color: #555;
 }
 
-/* EVENT INFO */
+/* CONTENT */
 .strip-content {
   flex: 1;
-  margin-left: 20px;
-  color: black;
+  margin: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ✅ IMPORTANT */
 }
 
 .strip-content h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 17px;
+  color: #111;
 }
 
 .strip-content p {
-  margin: 0;
+  margin: 2px 0;
+  font-size: 13px;
+  color: #555;
+}
+
+/* ORGANIZER */
+.organizer {
   font-size: 12px;
+  color: #4f46e5;
+  font-weight: 500;
+}
+
+/* EXTRA INFO */
+.extra-info {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  color: #777;
+  margin-top: 6px;
+
+  flex-wrap: nowrap; /* ✅ FIX */
 }
 
 /* BUTTON */
-.reg-btn button {
-  background-color:  #4f46e5;;
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 12px;
+.reg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
+.reg-btn button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
+
+.reg-btn button:hover {
+  background-color: #4338ca;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .eventstrip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .date {
+    width: 100%;
+    text-align: left;
+  }
+
+  .strip-content {
+    margin: 0;
+  }
+
+  .extra-info {
+    flex-wrap: wrap; /* allow wrap on small screens */
+  }
+
+  .reg-btn {
+    width: 100%;
+  }
+
+  .reg-btn button {
+    width: 100%;
+  }
+}

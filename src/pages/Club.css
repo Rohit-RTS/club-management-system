@@ -1,0 +1,52 @@
+/* Banner */
+.banner-clubs {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  height: 250px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.banner-clubs h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  max-width: 600px;
+}
+
+/* Search Box */
+.search-club {
+  position: relative;
+  width: 300px;
+}
+
+.search-club input {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background: #ffffff;
+  font-size: 14px;
+}
+
+/* Search Icon */
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+}
+
+/* Clubs Grid */
+.clubs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
