@@ -50,6 +50,14 @@
 ## 📸 Screenshots
 ![alt text](assets/Event-page.png)
 
+
+### Day 7
+
+- Dashboard system with backend fetching.
+
+## 📸 Screenshots
+![alt text](assets/Dashboard-page.png)
+
 ## 🌐 Live Demo
 
 (Add link when deployed)
