@@ -43,13 +43,12 @@
 
 ![alt text](assets/Club_page.png)
 
-### Day 5
+### Day 6
 
-- Implement Club page to show all the clubs ata glance.
+- Implemented Event page for known all the events at one place.
 
 ## 📸 Screenshots
-
-![alt text](assets/Club_page.png)
+![alt text](assets/Event-page.png)
 
 ## 🌐 Live Demo
 
