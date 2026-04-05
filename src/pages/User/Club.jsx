@@ -1,5 +1,5 @@
 import "./Club.css";
-import Clubcard from "../components/Clubcard";
+import Clubcard from "../../components/Clubcard";
 import { useState,useEffect } from "react";
 
 export default function Clubs() {

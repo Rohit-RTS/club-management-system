@@ -1,0 +1,55 @@
+.login-choice-container {
+  height: 100vh;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.login-box {
+  text-align: center;
+}
+
+.login-box h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.login-box p {
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+/* Options */
+.options {
+  display: flex;
+  gap: 20px;
+}
+
+/* Cards */
+.option-card {
+  background: #1e293b;
+  padding: 30px;
+  width: 260px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.option-card h2 {
+  margin-bottom: 10px;
+}
+
+.option-card p {
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+/* Hover Effect */
+.option-card:hover {
+  transform: translateY(-5px);
+  background: #334155;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}

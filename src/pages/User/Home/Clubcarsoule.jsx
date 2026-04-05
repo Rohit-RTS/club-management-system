@@ -1,8 +1,8 @@
-import Clubcard from "../../components/Clubcard";
+import Clubcard from "../../../components/Clubcard";
 import "./Clubcarsoule.css";
 
 
-export default function Carousel({ clubs = [] }) {
+export default function Clubcarsoule({ clubs = [] }) {
   return (
     <div className="clubcar">
       <span className="txt-carsoule">Featured Clubs</span>

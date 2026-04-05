@@ -1,5 +1,5 @@
 import "./Events.css";
-import Eventstrip from "../components/Eventstrip";
+import Eventstrip from "../../../components/Eventstrip";
 import { useState,useEffect } from "react";
 
 export default function Events() {

@@ -1,19 +1,18 @@
-import "./Login.css";
-import { Link } from "react-router-dom";
+import "./UserLogin.css";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Login() {
 
+  const navigate = useNavigate();
 
-  const [user,setuser] = useState({
-    email:"",
-    password:"",
+  const [user, setuser] = useState({
+    email: "",
+    password: "",
   });
-
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Login clicked");
 
     try {
       const res = await fetch("http://localhost:5000/api/login", {
@@ -21,26 +20,30 @@ export default function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify( user),
+        body: JSON.stringify(user),
       });
 
       const data = await res.json();
-      console.log("Response:", data);
 
       if (res.ok) {
-       
         localStorage.setItem("user", JSON.stringify(data.user));
 
-        alert("Login successful ");
+        alert("Login successful");
 
-      
-        window.location.href = "/dashboard";
+        // 🔥 Role-based redirect
+        if (data.user.role === "admin") {
+          navigate("/admin-dashboard");
+        } else {
+          navigate("/dashboard");
+        }
+
       } else {
         alert(data.message);
       }
+
     } catch (error) {
       console.log("Error:", error);
-      alert("Login failed ");
+      alert("Login failed");
     }
   };
 
@@ -49,7 +52,6 @@ export default function Login() {
       <div className="login-card">
         <h2>Club Portal Login</h2>
 
-    
         <form onSubmit={handleLogin}>
 
           <div className="input-group">
@@ -58,7 +60,7 @@ export default function Login() {
               type="email"
               placeholder="Enter your email"
               value={user.email}
-              onChange={(e) => setuser({...user,email:e.target.value})}
+              onChange={(e) => setuser({ ...user, email: e.target.value })}
               required
             />
           </div>
@@ -69,7 +71,7 @@ export default function Login() {
               type="password"
               placeholder="Enter your password"
               value={user.password}
-              onChange={(e) => setuser({...user,password:e.target.value})}
+              onChange={(e) => setuser({ ...user, password: e.target.value })}
               required
             />
           </div>

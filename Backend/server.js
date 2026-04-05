@@ -52,7 +52,7 @@ app.post("/api/register", async (req, res) => {
 app.post("/api/login", (req, res) => {
   const { email, password } = req.body;
 
-  const sql = "SELECT * FROM students WHERE email = ?";
+  const sql = "SELECT * FROM users WHERE email = ?";
 
   db.query(sql, [email], async (err, result) => {
     if (err) return res.status(500).json({ message: "DB error" });

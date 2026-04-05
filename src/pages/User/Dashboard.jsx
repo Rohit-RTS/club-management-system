@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
-import Clubcard from "../components/Clubcard";
-import Eventstrip from "../components/Eventstrip";
+import Clubcard from "../../components/Clubcard";
+import Eventstrip from "../../components/Eventstrip";
 import { useEffect, useState } from "react";
 
 export default function Dashboard() {
